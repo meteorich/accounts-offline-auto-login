@@ -1,5 +1,5 @@
-# accounts-auto-login-offline
-[Source code of released version](https://github.com/meteorich/accounts-auto-login-offline)
+# accounts-offline-auto-login
+[Source code of released version](https://github.com/meteorich/accounts-offline-auto-login)
 ***
 
 Uses [ground:db (NB version II)](https://github.com/GroundMeteor/db) to ground the logged in user and ensure that Meteor.userId() and Meteor.user() work when starting up with no connection.

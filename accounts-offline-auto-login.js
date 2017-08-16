@@ -1,4 +1,4 @@
-export const name = 'accounts-auto-login-offline';
+export const name = 'accounts-offline-auto-login';
 
 import { Meteor } from 'meteor/meteor';
 import { EJSON } from 'meteor/ejson'
