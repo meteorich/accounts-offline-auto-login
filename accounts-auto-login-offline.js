@@ -1,7 +1,3 @@
-// Write your package code here!
-
-// Variables exported by this module can be imported by other packages and
-// applications. See accounts-auto-login-offline-tests.js for an example of importing.
 export const name = 'accounts-auto-login-offline';
 
 import { Meteor } from 'meteor/meteor';
@@ -72,58 +68,3 @@ Tracker.autorun(() => {
         loggingInRV.set( loggingIn );
     }
 });
-
-return;
-
-// import { Tracker } from 'meteor/tracker';
-// import localforage from 'localforage';
-
-// save reference to Accounts userId and user functions
-Accounts._online_userId = Accounts.userId;
-Accounts._online_user = Accounts.user;
-Accounts._online_logout = Accounts.logout;
-
-// set up localforage
-let storage = localforage.createInstance({
-    name: name,
-    version: 1.0
-});
-
-let cached = {
-    userId: null,
-    user: null
-};
-// check for user information cache in local storage on startup
-Meteor.startup(function() {
-
-});
-
-Tracker.autorun(() => {
-    console.log('tracker autorun userId');
-    let _online_userId = Accounts._online_userId();
-    // if ( _online_userId ) storage.setItem('userId', _online_userId);
-});
-
-Tracker.autorun(() => {
-    console.log('tracker autorun user');
-    let _online_user = Accounts._online_user();
-    // if ( _online_user ) storage.setItem('user', _online_user);
-});
-
-// override Accounts userId and user functions
-Accounts.userId = function() {
-    console.log('userId');
-    return Accounts._online_userId()// || storage.getItem('userId') || null;
-};
-
-Accounts.user = function() {
-    console.log('user');
-    return Accounts._online_user()// || storage.getItem('user') || null;
-};
-
-Accounts.logout = function(callback) {
-    console.log('removing forage userId and user');
-    storage.removeItem('userId');
-    storage.removeItem('user');
-    Accounts._online_logout(callback);
-}
