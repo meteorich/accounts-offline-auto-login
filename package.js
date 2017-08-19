@@ -2,7 +2,7 @@ Package.describe({
   name: 'meteorich:accounts-offline-auto-login',
   version: '0.0.1',
   // Brief, one-line summary of the package.
-  summary: 'Persists logged in user information - i.e Meteor.user() and Meteor.userId() - when starting up offline.',
+  summary: 'Persists logged in user document - i.e Meteor.user() - so this is available when starting up offline.',
   // URL to the Git repository containing the source code for this package.
   git: '',
   // By default, Meteor will default to using README.md for documentation.
